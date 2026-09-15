@@ -311,11 +311,11 @@ df["area_category"] = pd.cut(
     bins=[0, 1500, 3000, float("inf")],
     labels=["Small", "Medium", "Large"]
 )
-print("\n========== AREA CATEGORIES ==========")
+print("\n    AREA CATEGORIES    ")
 print(df[["area", "area_category"]].head(10))
 
 # ENCODING CATEGORICAL VARIABLES
-print("\n========== CATEGORICAL COLUMNS ==========")
+print("\n    CATEGORICAL COLUMNS    ")
 print(df.select_dtypes(include=["object"]).columns)
 df["mainroad"] = df["mainroad"].map({
     "yes": 1,
@@ -334,6 +334,10 @@ df["hotwaterheating"] = df["hotwaterheating"].map({
     "no": 0
 })
 df["airconditioning"] = df["airconditioning"].map({
+    "yes": 1,
+    "no": 0
+})
+df["prefarea"] = df["prefarea"].map({
     "yes": 1,
     "no": 0
 })
